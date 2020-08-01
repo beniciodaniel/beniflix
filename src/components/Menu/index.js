@@ -12,12 +12,14 @@ function Menu() {
       <Link to="/">
         <img src={Logo} alt="Logo" />
       </Link>
-      <Button as={Link} to="/cadastro/video" className="ButtonLink">
-        Novo vídeo
-      </Button>
-      <Button as={Link} to="/cadastro/categoria" className="ButtonLink">
-        Nova Categoria
-      </Button>
+      <span>
+        <Button as={Link} to="/cadastro/video" className="ButtonLink">
+          Novo vídeo
+        </Button>
+        <Button as={Link} to="/cadastro/categoria" className="ButtonLink">
+          Nova Categoria
+        </Button>
+      </span>
     </nav>
   );
 }

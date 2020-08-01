@@ -26,6 +26,11 @@
   background: var(--black);
   border-bottom: 2px solid var(--primary);
 }
+
+span .ButtonLink {
+  margin-left: 0.5rem;
+}
+
 body {
   --bodyPaddingTop: 94px;
   padding-top: var(--bodyPaddingTop);
