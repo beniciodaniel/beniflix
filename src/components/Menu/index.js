@@ -16,9 +16,9 @@ function Menu() {
         <Button as={Link} to="/cadastro/video" className="ButtonLink">
           Novo vídeo
         </Button>
-        <Button as={Link} to="/cadastro/categoria" className="ButtonLink">
+        {/* <Button as={Link} to="/cadastro/categoria" className="ButtonLink">
           Nova Categoria
-        </Button>
+        </Button> */}
       </span>
     </nav>
   );

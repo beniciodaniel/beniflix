@@ -1,12 +1,85 @@
-import React from "react";
+import React, { useState } from "react";
 import PageDefault from "../../components/PageDefault";
 import { Link } from "react-router-dom";
+import FormField from "../../components/FormField";
 
 function CadastroCategoria() {
+  const valoresIniciais = {
+    nome: "",
+    descricao: "",
+    cor: "",
+  };
+  const [categorias, setCategorias] = useState([]);
+  const [values, setValues] = useState(valoresIniciais);
+
+  function setValue(chave, valor) {
+    setValues({
+      ...values,
+      [chave]: valor,
+    });
+  }
+
+  function handleChange(infosDoEvento) {
+    setValue(
+      infosDoEvento.target.getAttribute("name"),
+      infosDoEvento.target.value
+    );
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setCategorias([...categorias, values]);
+    setValues(valoresIniciais);
+  }
+
   return (
     <PageDefault>
-      <h1>Cadastro de Categoria</h1>
-      <Link to="/cadastro/video">Cadastrar Vídeo</Link>
+      <h1>Cadastro de Categoria: {values.nome}</h1>
+
+      <form onSubmit={handleSubmit}>
+        <FormField
+          label="Nome da Categoria"
+          type="text"
+          name="nome"
+          value={values.nome}
+          onChange={(e) => handleChange(e)}
+        />
+
+        {/* <div>
+          <label>
+            Descrição:
+            <textarea
+              type="text"
+              name="descricao"
+              value={values.descricao}
+              onChange={(e) => handleChange(e)}
+            />
+          </label>
+        </div> */}
+
+        <div>
+          <label>
+            <FormField
+              label="Cor"
+              type="color"
+              name="cor"
+              value={values.cor}
+              onChange={(e) => handleChange(e)}
+            />
+          </label>
+        </div>
+
+        <button>Cadastrar</button>
+      </form>
+
+      <ul>
+        {categorias &&
+          categorias.map((categoria, index) => (
+            <li key={index}>{categoria.nome}</li>
+          ))}
+      </ul>
+
+      <Link to="/">Ir para home</Link>
     </PageDefault>
   );
 }
