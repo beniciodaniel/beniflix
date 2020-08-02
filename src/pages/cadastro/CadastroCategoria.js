@@ -14,7 +14,7 @@ function CadastroCategoria() {
   const [values, setValues] = useState(valoresIniciais);
 
   useEffect(() => {
-    const URL = 'http://localhost:3000/categorias';
+    const URL = 'http://localhost:8080/categorias';
     fetch(URL)
       .then(async (response) => {
         const resposta = await response.json();
