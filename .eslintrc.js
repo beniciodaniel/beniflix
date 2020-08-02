@@ -18,5 +18,6 @@ module.exports = {
   plugins: ["react"],
   rules: {
     "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
+    "react/jsx-max-props-per-line": [1, { "maximum": 1, "when": 'always' }]
   },
 };

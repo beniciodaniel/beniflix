@@ -50,37 +50,29 @@ function CadastroCategoria() {
           onChange={(e) => handleChange(e)}
         />
 
-        {/* <div>
-          <label>
-            Descrição:
-            <textarea
-              type="text"
-              name="descricao"
-              value={values.descricao}
-              onChange={(e) => handleChange(e)}
-            />
-          </label>
-        </div> */}
+        <FormField
+          label="Descrição"
+          type="textarea"
+          name="descricao"
+          value={values.descricao}
+          onChange={(e) => handleChange(e)}
+        />
 
-        <div>
-          <label>
-            <FormField
-              label="Cor"
-              type="color"
-              name="cor"
-              value={values.cor}
-              onChange={(e) => handleChange(e)}
-            />
-          </label>
-        </div>
+        <FormField
+          label="Cor"
+          type="color"
+          name="cor"
+          value={values.cor}
+          onChange={(e) => handleChange(e)}
+        />
 
         <Button type="button">Cadastrar</Button>
       </form>
 
       <ul>
         {categorias
-          && categorias.map((categoria, index) => (
-            <li key={index}>{categoria.nome}</li>
+          && categorias.map((categoria) => (
+            <li key={categoria.nome}>{categoria.nome}</li>
           ))}
       </ul>
 
