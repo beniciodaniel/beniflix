@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-import PageDefault from "../../components/PageDefault";
-import { Link } from "react-router-dom";
-import FormField from "../../components/FormField";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import PageDefault from '../../components/PageDefault';
+import FormField from '../../components/FormField';
+import Button from '../../components/Button';
 
 function CadastroCategoria() {
   const valoresIniciais = {
-    nome: "",
-    descricao: "",
-    cor: "",
+    nome: '',
+    descricao: '',
+    cor: '',
   };
   const [categorias, setCategorias] = useState([]);
   const [values, setValues] = useState(valoresIniciais);
@@ -21,8 +22,8 @@ function CadastroCategoria() {
 
   function handleChange(infosDoEvento) {
     setValue(
-      infosDoEvento.target.getAttribute("name"),
-      infosDoEvento.target.value
+      infosDoEvento.target.getAttribute('name'),
+      infosDoEvento.target.value,
     );
   }
 
@@ -34,7 +35,11 @@ function CadastroCategoria() {
 
   return (
     <PageDefault>
-      <h1>Cadastro de Categoria: {values.nome}</h1>
+      <h1>
+        Cadastro de Categoria:
+        {' '}
+        {values.nome}
+      </h1>
 
       <form onSubmit={handleSubmit}>
         <FormField
@@ -69,12 +74,12 @@ function CadastroCategoria() {
           </label>
         </div>
 
-        <button>Cadastrar</button>
+        <Button type="button">Cadastrar</Button>
       </form>
 
       <ul>
-        {categorias &&
-          categorias.map((categoria, index) => (
+        {categorias
+          && categorias.map((categoria, index) => (
             <li key={index}>{categoria.nome}</li>
           ))}
       </ul>
